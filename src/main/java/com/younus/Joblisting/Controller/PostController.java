@@ -12,42 +12,41 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000") // Allow cross-origin requests from localhost:3000 (React frontend).
 public class PostController
 {
 
     @Autowired
-    PostRepository repo;
+    PostRepository repo; // Inject PostRepository to handle basic CRUD operations for job posts.
 
     @Autowired
-    SearchRepository srepo;
+    SearchRepository srepo; // Inject SearchRepository to handle search functionality using MongoDB aggregation.
 
     @Hidden
-    @RequestMapping(value="/")
+    @RequestMapping(value="/") // Hidden API to redirect the base URL to the Swagger UI documentation.
     public void redirect(HttpServletResponse response) throws IOException {
-        response.sendRedirect("/swagger-ui.html");
+        response.sendRedirect("/swagger-ui.html"); // Redirect to Swagger UI for API documentation.
     }
 
     @GetMapping("/allPosts")
     @CrossOrigin
-    public List<Post> getAllPosts()
+    public List<Post> getAllPosts() // Fetch all job posts from the MongoDB database.
     {
-        return repo.findAll();
+        return repo.findAll(); // Calls findAll() from MongoRepository to retrieve all records.
     }
-    // posts/java
+
+    // Get posts that match the search text (e.g., job profile, description, or technologies).
     @GetMapping("/posts/{text}")
     @CrossOrigin
-    public List<Post> search(@PathVariable String text)
+    public List<Post> search(@PathVariable String text) // Fetch job posts that match the provided search term.
     {
-        return srepo.findByText(text);
+        return srepo.findByText(text); // Calls the custom search repository to search for posts.
     }
 
     @PostMapping("/post")
     @CrossOrigin
-    public Post addPost(@RequestBody Post post)
+    public Post addPost(@RequestBody Post post) // Create and add a new job post to the database.
     {
-        return repo.save(post);
+        return repo.save(post); // Saves the job post to MongoDB using MongoRepository's save() method.
     }
-
-
 }
