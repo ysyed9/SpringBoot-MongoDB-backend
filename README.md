@@ -6,10 +6,9 @@ This repository contains the backend code for a simple job listing application b
 - [Tech Stack](#tech-stack)
 - [Features](#features)
 - [Setup and Installation](#setup-and-installation)
-- [API Endpoints](#api-endpoints)
-- [Search Functionality](#search-functionality)
-- [MongoDB Aggregation](#mongodb-aggregation)
-- [License](#license)
+- [API Endpoints]
+- [Search Functionality]
+- [MongoDB Aggregation]
 
 ## Tech Stack
 - **Backend**: Spring Boot (Java)
