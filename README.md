@@ -16,7 +16,7 @@ This repository contains the backend code for a simple job listing application b
 - **REST API**: Spring REST Controllers
 - **Data Mapping**: MongoDB Spring Data
 - **Search**: MongoDB Aggregation
-- **Frontend (CORS enabled)**: React (or any frontend hosted at `localhost:3000`)
+- **Frontend (CORS enabled)**: React (or any frontend hosted at `localhost:3000`) - For the frontend Github repo go here - https://github.com/ysyed9/Job_listing_project-Frontend
 
 ## Features
 - **Create Job Postings**: Employers can add new job posts with details such as job profile, description, experience required, and technologies needed.
